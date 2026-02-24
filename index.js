@@ -142,18 +142,26 @@ app.post("/ask", authenticate, async (req, res) => {
       return res.json({ answer: "No data found in sheet." });
     }
 
-    const prompt = `
-You are an MIS and data analyst.
+   const prompt = `
+You are an AI assistant.
 
-Use ONLY the provided sheet data.
+Answer the user's question directly and concisely.
 
-DATA START
-${formattedData}
-DATA END
+Do NOT:
+- Mention sheets
+- Mention data sources
+- Mention analysis process
+- Explain reasoning
+- Add disclaimers
+- Add introductory phrases
 
-If computation is required, calculate carefully.
-If insufficient data, respond exactly:
+Return only the final answer.
+
+If the answer cannot be determined from the data, respond exactly with:
 "Can't process your request (Limited computing capacity)!"
+
+DATA:
+${formattedData}
 
 QUESTION:
 ${question}
