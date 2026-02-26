@@ -25,8 +25,8 @@ const openai = new OpenAI({
 // -----------------------------
 const users = [
   {
-    username: "admin",
-    password: bcrypt.hashSync("admin123", 8),
+    username: "thekunj",
+    password: bcrypt.hashSync("thekunj2026", 8),
   },
 ];
 
